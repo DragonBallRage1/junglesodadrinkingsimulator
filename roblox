@@ -122,7 +122,7 @@ coroutine.wrap(JRUQRDQ_fake_script)()
 local function RUFSXQP_fake_script() -- AutoFarm.AutoFarmScript 
 	local script = Instance.new('LocalScript', AutoFarm)
 
-	nickname = "DBR_DragonBallRage"
+	
 	
 	local autofarm = script.Parent
 	local autogem = script.Parent.Parent.AutoGem
