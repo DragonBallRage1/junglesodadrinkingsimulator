@@ -2,7 +2,7 @@
 -- Version: 3.6
 
 -- Instances:
-local nickname = "DBR_DragonBallRage"
+nickname = "DBR_DragonBallRage"
 local ScreenGui = Instance.new("ScreenGui")
 local Close = Instance.new("TextButton")
 local Menu = Instance.new("Frame")
