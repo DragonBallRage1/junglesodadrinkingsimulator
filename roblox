@@ -42,7 +42,7 @@ Close.TextWrapped = true
 
 -- Scripts:
 
-local function XIZLXE_fake_script() -- Auto.LocalScript 
+local function RLDAFNF_fake_script() -- Auto.LocalScript 
 	local script = Instance.new('LocalScript', Auto)
 
 	start = false
@@ -56,18 +56,16 @@ local function XIZLXE_fake_script() -- Auto.LocalScript
 	local runService = game:GetService("RunService")
 	runService.RenderStepped:Connect(function()
 		if start == true then
-				local Soda = game.Players.LocalPlayer.Backpack:FindFirstChild("Soda")
-				if Soda then
-					Soda.Parent = game.Workspace[game.Players.LocalPlayer.Name]
 		game:GetService("ReplicatedStorage").RebirthMe:FireServer()
 		game:GetService("Players").LocalPlayer.Character.Soda.Drink:FireServer()
-				end
+				local Soda = game.Players.LocalPlayer.Backpack.Soda
+					Soda.Parent = game.Workspace[game.Players.LocalPlayer.Name]
 			end
 		end)
 	end)
 end
-coroutine.wrap(XIZLXE_fake_script)()
-local function LHXNETU_fake_script() -- Close.ToggleMenu 
+coroutine.wrap(RLDAFNF_fake_script)()
+local function RLIEW_fake_script() -- Close.ToggleMenu 
 	local script = Instance.new('LocalScript', Close)
 
 	local menu = script.Parent.Parent.Auto
@@ -80,8 +78,8 @@ local function LHXNETU_fake_script() -- Close.ToggleMenu
 		end
 	end)
 end
-coroutine.wrap(LHXNETU_fake_script)()
-local function LUMFFDB_fake_script() -- Close.Drag 
+coroutine.wrap(RLIEW_fake_script)()
+local function OGGSTJQ_fake_script() -- Close.Drag 
 	local script = Instance.new('LocalScript', Close)
 
 	local frame = script.Parent
@@ -89,4 +87,4 @@ local function LUMFFDB_fake_script() -- Close.Drag
 	frame.Active = true
 	frame.Selectable = true
 end
-coroutine.wrap(LUMFFDB_fake_script)()
+coroutine.wrap(OGGSTJQ_fake_script)()
