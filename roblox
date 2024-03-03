@@ -14,8 +14,7 @@ local Info = Instance.new("TextLabel")
 
 -- Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.Enabled = false
+ScreenGui.Parent = game:GetService("Coregui")
 
 Close.Name = "Close"
 Close.Parent = ScreenGui
