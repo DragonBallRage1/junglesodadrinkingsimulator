@@ -13,7 +13,7 @@ local Info = Instance.new("TextLabel")
 
 -- Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = game:GetService:("CoreGui")
 
 Close.Name = "Close"
 Close.Parent = ScreenGui
