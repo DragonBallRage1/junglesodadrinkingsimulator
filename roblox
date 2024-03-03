@@ -189,9 +189,8 @@ local function OBTHEZB_fake_script() -- AutoGem.AutoGemScript
 			if autogem.Visible == true then
 				game:GetService("ReplicatedStorage").RebirthMe:FireServer()
 				local Soda = game.Players.LocalPlayer.Backpack.Soda
-				if Soda then
 					Soda.Parent = game.Workspace[nickname]
-				end
+				
 			else
 				-- do nothing
 			end
