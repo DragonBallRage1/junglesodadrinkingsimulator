@@ -2,21 +2,32 @@
 -- Version: 3.6
 
 -- Instances:
-nickname = "DBR_DragonBallRage"
-local ScreenGui = Instance.new("ScreenGui")
+
+local Test = Instance.new("ScreenGui")
+local Auto = Instance.new("TextButton")
 local Close = Instance.new("TextButton")
-local Menu = Instance.new("Frame")
-local AutoFarm = Instance.new("TextButton")
-local Rejoin = Instance.new("TextButton")
-local AutoGem = Instance.new("TextButton")
-local Info = Instance.new("TextLabel")
 
 -- Properties:
 
-ScreenGui.Parent = game:GetService("CoreGui")
+Test.Name = "Test"
+Test.Parent = game:GetService("CoreGui")
+
+Auto.Name = "Auto"
+Auto.Parent = Test
+Auto.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Auto.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Auto.BorderSizePixel = 7
+Auto.Position = UDim2.new(0.413194448, 0, 0.447033912, 0)
+Auto.Size = UDim2.new(0, 200, 0, 50)
+Auto.Font = Enum.Font.SourceSans
+Auto.Text = "Auto Farm"
+Auto.TextColor3 = Color3.fromRGB(0, 0, 0)
+Auto.TextScaled = true
+Auto.TextSize = 14.000
+Auto.TextWrapped = true
 
 Close.Name = "Close"
-Close.Parent = ScreenGui
+Close.Parent = Test
 Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Close.BorderSizePixel = 7
@@ -29,77 +40,37 @@ Close.TextScaled = true
 Close.TextSize = 14.000
 Close.TextWrapped = true
 
-Menu.Name = "Menu"
-Menu.Parent = ScreenGui
-Menu.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Menu.BackgroundTransparency = 1.000
-Menu.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Menu.BorderSizePixel = 0
-Menu.Position = UDim2.new(0.387366831, 0, 0.296610177, 0)
-Menu.Size = UDim2.new(0, 216, 0, 145)
-
-AutoFarm.Name = "AutoFarm"
-AutoFarm.Parent = Menu
-AutoFarm.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-AutoFarm.BorderColor3 = Color3.fromRGB(0, 0, 0)
-AutoFarm.BorderSizePixel = 7
-AutoFarm.Position = UDim2.new(0, 0, 0.0414378196, 0)
-AutoFarm.Size = UDim2.new(0, 215, 0, 64)
-AutoFarm.Font = Enum.Font.SourceSans
-AutoFarm.Text = "AutoFarm"
-AutoFarm.TextColor3 = Color3.fromRGB(0, 0, 0)
-AutoFarm.TextScaled = true
-AutoFarm.TextSize = 14.000
-AutoFarm.TextWrapped = true
-
-Rejoin.Name = "Rejoin"
-Rejoin.Parent = Menu
-Rejoin.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
-Rejoin.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Rejoin.BorderSizePixel = 7
-Rejoin.Position = UDim2.new(1.05769742, 0, 0.0414378196, 0)
-Rejoin.Size = UDim2.new(0, 119, 0, 63)
-Rejoin.Font = Enum.Font.SourceSans
-Rejoin.Text = "Rejoin"
-Rejoin.TextColor3 = Color3.fromRGB(0, 0, 0)
-Rejoin.TextScaled = true
-Rejoin.TextSize = 14.000
-Rejoin.TextWrapped = true
-
-AutoGem.Name = "AutoGem"
-AutoGem.Parent = Menu
-AutoGem.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-AutoGem.BorderColor3 = Color3.fromRGB(0, 0, 0)
-AutoGem.BorderSizePixel = 7
-AutoGem.Position = UDim2.new(0, 0, 0.55634135, 0)
-AutoGem.Size = UDim2.new(0, 215, 0, 64)
-AutoGem.Font = Enum.Font.SourceSans
-AutoGem.Text = "AutoRebirth"
-AutoGem.TextColor3 = Color3.fromRGB(0, 0, 0)
-AutoGem.TextScaled = true
-AutoGem.TextSize = 14.000
-AutoGem.TextWrapped = true
-
-Info.Name = "Info"
-Info.Parent = AutoGem
-Info.BackgroundColor3 = Color3.fromRGB(170, 170, 0)
-Info.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Info.BorderSizePixel = 7
-Info.Position = UDim2.new(1.05796611, 0, -0.0111784935, 0)
-Info.Size = UDim2.new(0, 120, 0, 64)
-Info.Font = Enum.Font.SourceSans
-Info.Text = "Only works when autofarm is on"
-Info.TextColor3 = Color3.fromRGB(0, 0, 0)
-Info.TextScaled = true
-Info.TextSize = 14.000
-Info.TextWrapped = true
-
 -- Scripts:
 
-local function BTFKDSX_fake_script() -- Close.ToggleMenu 
+local function XIZLXE_fake_script() -- Auto.LocalScript 
+	local script = Instance.new('LocalScript', Auto)
+
+	start = false
+	local auto = script.Parent
+	auto.MouseButton1Click:Connect(function()
+		if start == true then
+			start = false
+		else
+			start = true
+		end
+	local runService = game:GetService("RunService")
+	runService.RenderStepped:Connect(function()
+		if start == true then
+				local Soda = game.Players.LocalPlayer.Backpack:FindFirstChild("Soda")
+				if Soda then
+					Soda.Parent = game.Workspace[game.Players.LocalPlayer.Name]
+		game:GetService("ReplicatedStorage").RebirthMe:FireServer()
+		game:GetService("Players").LocalPlayer.Character.Soda.Drink:FireServer()
+				end
+			end
+		end)
+	end)
+end
+coroutine.wrap(XIZLXE_fake_script)()
+local function LHXNETU_fake_script() -- Close.ToggleMenu 
 	local script = Instance.new('LocalScript', Close)
 
-	local menu = script.Parent.Parent.Menu
+	local menu = script.Parent.Parent.Auto
 	local toggle = script.Parent
 	toggle.MouseButton1Click:Connect(function()
 		if menu.Visible == false then
@@ -109,8 +80,8 @@ local function BTFKDSX_fake_script() -- Close.ToggleMenu
 		end
 	end)
 end
-coroutine.wrap(BTFKDSX_fake_script)()
-local function JRUQRDQ_fake_script() -- Close.Drag 
+coroutine.wrap(LHXNETU_fake_script)()
+local function LUMFFDB_fake_script() -- Close.Drag 
 	local script = Instance.new('LocalScript', Close)
 
 	local frame = script.Parent
@@ -118,85 +89,4 @@ local function JRUQRDQ_fake_script() -- Close.Drag
 	frame.Active = true
 	frame.Selectable = true
 end
-coroutine.wrap(JRUQRDQ_fake_script)()
-local function RUFSXQP_fake_script() -- AutoFarm.AutoFarmScript 
-	local script = Instance.new('LocalScript', AutoFarm)
-
-	
-	
-	local autofarm = script.Parent
-	local autogem = script.Parent.Parent.AutoGem
-	local Toggle1 = false
-	
-	local runService = game:GetService("RunService")runService.RenderStepped:Connect(function()	
-		if Toggle1 == false then
-			
-			if autogem.Visible == true then
-				autogem.Visible = false
-			end
-		--do nothing
-		else
-			
-			if autogem.Visible == false then
-				autogem.Visible = true
-			end
-			--function
-				game:GetService("Players").LocalPlayer.Character.Soda.Drink:FireServer()
-			local Soda = game.Players.LocalPlayer.Backpack.Soda
-			if Soda then
-				Soda.Parent = game.Workspace[nickname]
-			end
-		end
-		end)
-	
-	
-		 autofarm.MouseButton1Click:Connect(function()
-				--if red then green
-		if autofarm.BackgroundColor3 == Color3.fromRGB(255,0,0) then
-			autofarm.BackgroundColor3 = Color3.fromRGB(0,255,0)
-			Toggle1 = true
-		else
-			-- if not red then red
-			autofarm.BackgroundColor3 = Color3.fromRGB(255,0,0)
-			Toggle1 = false
-		end
-		 end)
-end
-coroutine.wrap(RUFSXQP_fake_script)()
-local function BEGMVXK_fake_script() -- Rejoin.RejoinScript 
-	local script = Instance.new('LocalScript', Rejoin)
-
-	script.Parent.MouseButton1Click:Connect(function()game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)end)
-end
-coroutine.wrap(BEGMVXK_fake_script)()
-local function OBTHEZB_fake_script() -- AutoGem.AutoGemScript 
-	local script = Instance.new('LocalScript', AutoGem)
-
-	local autogem = script.Parent
-	local Toggle2 = false
-	autogem.MouseButton1Click:Connect(function()
-		if autogem.BackgroundColor3 == Color3.fromRGB(255,0,0) then
-			 autogem.BackgroundColor3 = Color3.fromRGB(0,255,0)
-			 Toggle2 = true
-		else
-			autogem.BackgroundColor3 = Color3.fromRGB(255,0,0) 
-			Toggle2 = false
-		end
-	end)
-	
-	local runService = game:GetService("RunService")runService.RenderStepped:Connect(function()
-		if Toggle2 == true then
-			if autogem.Visible == true then
-				game:GetService("ReplicatedStorage").RebirthMe:FireServer()
-				local Soda = game.Players.LocalPlayer.Backpack.Soda
-					Soda.Parent = game.Workspace[nickname]
-				
-			else
-				-- do nothing
-			end
-		else
-			-- do nothing
-		end
-	end)
-end
-coroutine.wrap(OBTHEZB_fake_script)()
+coroutine.wrap(LUMFFDB_fake_script)()
